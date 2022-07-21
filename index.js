@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 
 app.use(bodyParser.json());
 
-const PORT = '3001';
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log('Online');
+  console.log(`Online ${PORT}`);
 });
