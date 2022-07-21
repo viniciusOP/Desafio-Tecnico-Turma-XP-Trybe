@@ -6,7 +6,7 @@ USE db_desafio_XP;
 
 CREATE TABLE cliente (
     id INT NOT NULL auto_increment,
-    saldo DOUBLE NOT NULL,
+    saldo DECIMAL(5, 2) NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
@@ -32,7 +32,7 @@ CREATE TABLE ativo_cliente (
 
 SET SQL_SAFE_UPDATES = 0;
 
-INSERT INTO db_desafio_XP.cliente (valor) VALUES
+INSERT INTO db_desafio_XP.cliente (saldo) VALUES
     (10.3000),
     (20.5000),
     (30.4000);
