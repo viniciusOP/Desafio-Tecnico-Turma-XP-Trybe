@@ -10,9 +10,9 @@ app.use(express.json());
 
 app.get('/conta/:id', ClienteController.getById);
 
-app.post('/conta/saque/:id', ValidateSaque, ClienteController.updateSaque);
+app.post('/conta/saque', ValidateSaque, ClienteController.updateSaque);
 
-app.post('/conta/deposito/:id', ValidateDeposito, ClienteController.updateDeposito);
+app.post('/conta/deposito', ValidateDeposito, ClienteController.updateDeposito);
 
 app.use(errorMiddleware);
 

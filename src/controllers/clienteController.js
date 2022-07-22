@@ -10,9 +10,8 @@ const getById = async (req, res) => {
    res.status(200).json(cliente[0]);
 };
 
-const updateSaque = async (req, res, next) => {
-  const { id } = req.params;
-  const { saldo } = req.body;
+const updateSaque = async (req, res, _next) => {
+  const { id, saldo } = req.body;
 
   const [clienteById] = await ClienteService.getById(id);
 
@@ -26,28 +25,23 @@ const updateSaque = async (req, res, next) => {
 
   const saldoAtual = clienteById[0].saldo - saldo; 
 
-  const cliente = await ClienteService.update(id, saldoAtual);
+  await ClienteService.updateSaque(id, saldoAtual);
 
-  if (cliente) return res.status(200).json(cliente);
-
-  next();
+  return res.status(200).json(req.body);
 };
 
-const updateDeposito = async (req, res, next) => {
-  const { id } = req.params;
-  const { saldo } = req.body;
+const updateDeposito = async (req, res, _next) => {
+  const { id, saldo } = req.body;
 
   const [clienteById] = await ClienteService.getById(id);
-
-  const saldoAtual = (saldo) + (+clienteById[0].saldo);
   
   if (clienteById.length === 0) return res.status(404).json({ message: 'cliente não encontrado' });
+  
+  const saldoAtual = (saldo) + (+clienteById[0].saldo);
 
-  const cliente = await ClienteService.updateDeposito(id, saldoAtual);
+  await ClienteService.updateDeposito(id, saldoAtual);
 
-  if (cliente) return res.status(200).json(cliente);
-
-  next();
+  return res.status(200).json(req.body);
 };
 
 module.exports = { getById, updateSaque, updateDeposito };
