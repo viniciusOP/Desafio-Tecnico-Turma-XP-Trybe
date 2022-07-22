@@ -26,11 +26,28 @@ const updateSaque = async (req, res, next) => {
 
   const saldoAtual = clienteById[0].saldo - saldo; 
 
-  const cliente = await ClienteService.updateSaque(id, saldoAtual);
+  const cliente = await ClienteService.update(id, saldoAtual);
 
   if (cliente) return res.status(200).json(cliente);
 
   next();
 };
 
-module.exports = { getById, updateSaque };
+const updateDeposito = async (req, res, next) => {
+  const { id } = req.params;
+  const { saldo } = req.body;
+
+  const [clienteById] = await ClienteService.getById(id);
+
+  const saldoAtual = (saldo) + (+clienteById[0].saldo);
+  
+  if (clienteById.length === 0) return res.status(404).json({ message: 'cliente não encontrado' });
+
+  const cliente = await ClienteService.updateDeposito(id, saldoAtual);
+
+  if (cliente) return res.status(200).json(cliente);
+
+  next();
+};
+
+module.exports = { getById, updateSaque, updateDeposito };
