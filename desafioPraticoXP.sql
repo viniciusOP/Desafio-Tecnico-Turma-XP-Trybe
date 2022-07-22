@@ -6,14 +6,14 @@ USE db_desafio_XP;
 
 CREATE TABLE cliente (
     id INT NOT NULL auto_increment,
-    saldo DECIMAL(5, 2) NOT NULL,
+    saldo FLOAT NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
 CREATE TABLE ativo (
     id INT NOT NULL auto_increment,
     quantidade INT NOT NULL,
-    valor DOUBLE NOT NULL,
+    valor FLOAT NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
@@ -21,7 +21,7 @@ CREATE TABLE ativo_cliente (
     cliente_id INT NOT NULL,
     ativo_id INT NOT NULL,
     quantidade INT NOT NULL,
-    valor_total DOUBLE NOT NULL,
+    valor_total FLOAT NOT NULL,
     FOREIGN KEY (cliente_id)
         REFERENCES cliente (id)
         ON DELETE CASCADE,
