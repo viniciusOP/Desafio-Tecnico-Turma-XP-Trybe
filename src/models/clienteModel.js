@@ -16,4 +16,10 @@ const updateSaque = async (id, saldo) => {
   return { id, saldo };
 };
 
-module.exports = { getById, updateSaque };
+const updateDeposito = async (id, saldo) => {
+  await connection.execute('UPDATE db_desafio_XP.cliente SET saldo = ? WHERE id = ?', [saldo, id]);
+
+  return { id, saldo };
+};
+
+module.exports = { getById, updateSaque, updateDeposito };
