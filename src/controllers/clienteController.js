@@ -7,15 +7,13 @@ const getById = async (req, res) => {
   if (!cliente.length) {
     return res.status(404).json({ message: 'cliente não encontrado' });
   }
-   res.status(200).json(cliente[0]);
+   res.status(200).json(cliente);
 };
 
 const updateSaque = async (req, res, _next) => {
   const { id, saldo } = req.body;
 
   const [clienteById] = await ClienteService.getById(id);
-
-  console.log(clienteById[0].saldo);
   
   if (clienteById.length === 0) return res.status(404).json({ message: 'cliente não encontrado' });
   

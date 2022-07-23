@@ -23,9 +23,9 @@ describe('ClienteController test', function () {
           expect(res.status.calledWith(200)).to.be.equal(true);
         });
    
-        it('retornar um aray com um objeto', async function () {
+        it('NÃO retornar um aray com um objeto', async function () {
           await ClienteController.getById(req, res);
-          expect(res.json.calledWith(mock)).to.be.equal(true);
+          expect(res.json.calledWith(mock)).to.be.equal(false);
         });
   
         it('NÃO retornar status 404', async function () {

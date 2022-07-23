@@ -1,5 +1,6 @@
 const express = require('express');
 const ClienteController = require('./src/controllers/clienteController');
+const AtivoController = require('./src/controllers/ativoController');
 const errorMiddleware = require('./src/middlewares/error');
 const ValidateSaque = require('./src/middlewares/validateSaque');
 const ValidateDeposito = require('./src/middlewares/ValidateDeposito');
@@ -13,6 +14,8 @@ app.get('/conta/:id', ClienteController.getById);
 app.post('/conta/saque', ValidateSaque, ClienteController.updateSaque);
 
 app.post('/conta/deposito', ValidateDeposito, ClienteController.updateDeposito);
+
+app.get('/ativos/:id', AtivoController.getById);
 
 app.use(errorMiddleware);
 
