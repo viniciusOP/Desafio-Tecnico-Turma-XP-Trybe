@@ -1,9 +1,9 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const connection = require('../../models/connection');
-const ClienteModel = require('../../models/clienteModel');
+const AtivoModel = require('../../models/ativoModel');
 
-describe('ClienteModel test', function () {
+describe('AtivoModel test', function () {
   describe('getById test', function () {
       before(function () {
           sinon.stub(connection, 'execute').resolves([[]]);
@@ -12,7 +12,7 @@ describe('ClienteModel test', function () {
           connection.execute.restore();
       });
       it('deverá retornar um array', async function () {
-          const response = await ClienteModel.getById(1);
+          const response = await AtivoModel.getById(1);
           expect(response).to.be.an('array');
       });
   });

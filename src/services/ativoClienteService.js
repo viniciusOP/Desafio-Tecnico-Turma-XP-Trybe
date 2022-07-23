@@ -1,5 +1,5 @@
 const AtivoClienteModel = require('../models/ativoClienteModel');
 
-const getById = (id) => AtivoClienteModel.getById(id);
+const getById = (clienteId) => AtivoClienteModel.getById(clienteId);
 
 module.exports = { getById };
