@@ -43,6 +43,13 @@ npm install
   ```
   `docker exec -it desafio_XP bash`
   ```
+## Executando aplicação
+
+- Para rodar o back-end:
+
+```
+`npm start`
+```
 
 ## Executando Testes
 
