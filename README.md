@@ -1,4 +1,4 @@
-# Desafio-tecnico-turma-xp-trybe
+# Desafio-técnico-turma-XP
 
 # Contexto
 
@@ -35,21 +35,22 @@ npm install
 - Para rodar os serviços `node` e `db` no back-end:
 
   ```
-  `docker-compose up -d`
+  docker-compose up -d
   ```
 
 - Use o comando abaixo para ter acesso ao terminal alternativo do container:
 
   ```
-  `docker exec -it desafio_XP bash`
+  docker exec -it desafio_XP bash
   ```
+  
 ## Executando aplicação
 
 - Para rodar o back-end:
 
-```
-`npm start`
-```
+  ```
+  npm start
+  ```
 
 ## Executando Testes
 
